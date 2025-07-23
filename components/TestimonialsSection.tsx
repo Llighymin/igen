@@ -2,8 +2,10 @@
 
 import { useState, useRef } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useInViewSection } from "./useInViewSection";
 
 const TestimonialsSection = () => {
+  const { ref, inView } = useInViewSection();
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
   const testimonials = [
@@ -61,7 +63,10 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section
+      ref={ref}
+      className={`py-20 md:py-32 bg-white transition-all duration-1000 ${inView ? 'slide-right-in' : 'slide-right-init'}`}
+    >
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-6">

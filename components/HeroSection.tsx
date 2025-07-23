@@ -60,15 +60,13 @@ const HeroSection = () => {
             {heroVideos[currentSlide].subtitle}
           </p>
           <div className="mt-8 flex items-center space-x-4">
-            <span className="font-mono text-lg">
-              0{currentSlide + 1}
-            </span>
+            <span className="font-mono text-lg">0{currentSlide + 1}</span>
             <div className="flex space-x-2">
               {heroVideos.map((_, index) => (
                 <div
                   key={index}
                   className={`w-8 h-0.5 transition-colors duration-300 ${
-                    index <= currentSlide ? 'bg-white' : 'bg-white/30'
+                    index <= currentSlide ? "bg-white" : "bg-white/30"
                   }`}
                 />
               ))}

@@ -1,6 +1,8 @@
 import { ArrowRight, Calendar } from "lucide-react";
+import { useInViewSection } from "./useInViewSection";
 
 const AboutSection = () => {
+  const { ref, inView } = useInViewSection();
   const contentList = [
     {
       title: "스타트업 성장 전략: 컴퍼니빌딩의 핵심 요소 스타트업 성장 전략: 컴퍼니빌딩의 핵심 요소 스타트업 성장 전략: 컴퍼니빌딩의 핵심 요소 스타트업 성장 전략: 컴퍼니빌딩의 핵심 요소",
@@ -20,7 +22,10 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section
+      ref={ref}
+      className={`py-16 md:py-24 bg-white transition-opacity duration-1000 ${inView ? 'fade-in' : 'opacity-0'}`}
+    >
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Content */}

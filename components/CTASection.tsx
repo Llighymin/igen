@@ -1,10 +1,15 @@
 'use client';
 
 import Link from 'next/link';
+import { useInViewSection } from "./useInViewSection";
 
 export default function CTASection() {
+  const { ref, inView } = useInViewSection();
   return (
-    <section className="py-20 md:py-32 bg-gray-50">
+    <section
+      ref={ref}
+      className={`py-20 md:py-32 bg-gray-50 transition-all duration-1000 ${inView ? 'rotate-in' : 'rotate-init'}`}
+    >
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
           스타트업의 성공적인 성장,<br />
